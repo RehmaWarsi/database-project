@@ -163,7 +163,7 @@ text-align: center;
 
 
 	<h1 style="text-align: center;font-family:serif; font-style:italic ;">V MOTORS</h1>
-	<img src="con.jpg" height="700px" width="100%">
+	<img src="con.jpeg" height="700px" width="100%">
   <!-- Navbar HTML -->
    <div class="navbar">
     <a href="index.html">Home</a>
@@ -200,7 +200,7 @@ text-align: center;
   <div style="text-align: center;">
   <h1>COMPLAIN HERE:</h1>
 
-  	  <form action="/submit_complaint" method="POST">
+  	  <form action="complain.php" method="post">
     <label for="name"> Name:</label>
     <input type="text" id="name" name="name" required><br><br>
 
@@ -210,7 +210,7 @@ text-align: center;
     <label for="complaint">Complaint:</label><br>
     <textarea id="complaint" name="complain"></textarea><br><br>
 
-    <input type="submit" value="Submit Complaint">
+    <input type="submit" name="complaint" value="Submit Complaint">
   </form>
 </div>
 

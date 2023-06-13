@@ -5,20 +5,20 @@ $password="";
 $database_name="cs";
 
 echo "inside php";
-
-$Conn=mysqli_connect($customer_id,$name,$servie_brief,$phone,$CS);
+print_r($_POST);
+$Conn=mysqli_connect($servername,$username,$password,$database_name);
 //check connection 
 if(!$Conn)
 {
 	die("Connection failed:".mysqli_connect_error());
 }
 	
-if (isset($_POST['save']))
+if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['service']) && isset($_POST['phone']))
  {
  	echo "inside php";
- 	$customer_id=$_POST['customer_id']
+ 	$customer_id=$_POST['id'];
  	$name=$_POST['name'];
-	$servie_brief=$_POST['servie_brief'];
+	$service_brief=$_POST['service'];
 	$phone=$_POST['phone'];
 	
 	
@@ -31,6 +31,8 @@ if (isset($_POST['save']))
 	if (mysqli_query($Conn,$sql_querry))
 	{
 		echo " service request accepted successfully!";
+		header("Location: service.html");
+		exit;
 	}
 
 	else

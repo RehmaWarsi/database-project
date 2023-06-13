@@ -13,7 +13,7 @@ if(!$Conn)
 	die("Connection failed:".mysqli_connect_error());
 }
 	
-if (isset($_POST['save']))
+if (isset($_POST['fullname']) && isset($_POST['email']) && isset($_POST['address']) && isset($_POST['phone']))
  {
  	echo "inside php";
 	$fullname=$_POST['fullname'];
@@ -29,6 +29,8 @@ if (isset($_POST['save']))
 	if (mysqli_query($Conn,$sql_querry))
 	{
 		echo "person data entered successfully!";
+		header("Location: carb.html");
+		exit; 
 	}
 
 	else

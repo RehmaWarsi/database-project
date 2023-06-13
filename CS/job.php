@@ -5,18 +5,20 @@ $password="";
 $database_name="cs";
 
 echo "inside php";
+print_r($_POST);
 
-$Conn=mysqli_connect($firstname,$lastname,$qualification,$phone,$dob,$city,$experience,$CS);
+$Conn=mysqli_connect($servername,$username,$password,$database_name);
 //check connection 
 if(!$Conn)
 {
 	die("Connection failed:".mysqli_connect_error());
 }
 	
-if (isset($_POST['save']))
+if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['qualification']) 
+    && isset($_POST['phone']) && isset($_POST['dob']) && isset($_POST['city']) && isset($_POST['experience']))
  {
  	echo "inside php";
- 	$firstname=$_POST['firstname']
+ 	$firstname=$_POST['firstname'];
  	$lastname=$_POST['lastname'];
 	$qualification=$_POST['qualification'];
 	$phone=$_POST['phone'];
@@ -29,13 +31,15 @@ if (isset($_POST['save']))
 	
 
 
-	$sql_querry="INSERT INTO job(firstname,lastname,qualificatiom,phone,dob,city,experience)
-	VALUES('$firstname','$lastname','$qualificatiom','$phone','$dob','$city','$experience');";
+	$sql_querry="INSERT INTO job(firstname,lastname,qualification,phone,dob,city,experience)
+	VALUES('$firstname','$lastname','$qualification','$phone','$dob','$city','$experience');";
 
 
 	if (mysqli_query($Conn,$sql_querry))
 	{
 		echo " for further actions wait for company reaction ";
+		header("Location: Jobs.html");
+		exit;
 	}
 
 	else
