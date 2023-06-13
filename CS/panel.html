@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Showroom Sales</title>
+</head>
+<body>
+  <h1>Car Showroom Sales</h1>
+
+    echo "<table>
+            <tr>
+              <th>Car</th>
+              <th>Price</th>
+            </tr>";
+
+    while ($row = mysqli_fetch_assoc($result)) {
+      echo "<tr>";
+      echo "<td>" . $row['car'] . "</td>";
+      echo "<td>" . $row['price'] . "</td>";
+      echo "</tr>";
+
+      // Calculate sum
+      $sum += $row['price'];
+    }
+
+    echo "</table>";
+
+    echo "<p>Total sales: " . $count . "</p>";
+    echo "<p>Total revenue: $" . $sum . "</p>";
+  } else {
+    echo "<p>No sales found.</p>";
+  }
+
+  // Close the database connection
+  mysqli_close($conn);
+  ?>
+</body>
+</html>
